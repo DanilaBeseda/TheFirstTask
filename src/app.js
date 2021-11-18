@@ -5,7 +5,7 @@ import './style.css';
  * Приложение
  * @param store {Store} Состояние с действиями
  */
-function App({store}) {
+function App({ store }) {
   return (
     <div className='App'>
       <div className='App__head'>
@@ -19,10 +19,12 @@ function App({store}) {
           <div
             key={item.code}
             className={'List__item' + (item.selected ? ' List__item_selected' : '')}
+            onClick={() => store.addClick(item.code)}
           >
             <div className='Item' onClick={() => store.selectItem(item.code)}>
               <div className='Item__number'>{item.code}</div>
               <div className='Item__title'>{item.title}</div>
+              {!!item.count && <div className='Item__count'>{item.count}</div>}
               <div className='Item__actions'>
                 <button onClick={() => store.deleteItem(item.code)}>
                   Удалить
