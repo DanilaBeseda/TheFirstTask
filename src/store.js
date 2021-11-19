@@ -52,7 +52,6 @@ class Store {
       items: this.state.items.concat({
         code,
         title: 'Новая запись №' + code,
-        count: 0
       })
     });
   }
@@ -86,7 +85,7 @@ class Store {
     this.setState({
       items: this.state.items.map(item => {
         if (item.code === code) {
-          item.count++
+          item.count ? item.count++ : item.count = 1
         }
         return item
       })
