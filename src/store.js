@@ -81,10 +81,10 @@ class Store {
     });
   }
 
-  addClick(code) {
+  addClick(code, selected) {
     this.setState({
       items: this.state.items.map(item => {
-        if (item.code === code) {
+        if (item.code === code && selected) {
           item.count ? item.count++ : item.count = 1
         }
         return item
